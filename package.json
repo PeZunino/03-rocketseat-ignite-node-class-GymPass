@@ -11,7 +11,6 @@
     "database:stop": "docker compose stop",
     "database:delete": "docker compose down",
     "database:migrate": "npx prisma migrate dev"
-
   },
   "repository": {
     "type": "git",
@@ -28,6 +27,7 @@
   "devDependencies": {
     "@eslint/js": "9.18.0",
     "@stylistic/eslint-plugin": "2.13.0",
+    "@types/bcryptjs": "2.4.6",
     "@types/node": "22.10.7",
     "eslint": "9.18.0",
     "eslint-plugin-simple-import-sort": "12.1.1",
@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@prisma/client": "6.2.1",
+    "bcryptjs": "2.4.3",
     "dotenv": "16.4.7",
     "fastify": "5.2.1",
     "zod": "3.24.1"
