@@ -2,7 +2,7 @@ import 'dotenv/config';
 import {z} from 'zod';
 
 const envSchema = z.object({
-	NODE_env: z.enum([
+	NODE_ENV: z.enum([
 		'dev','test','prod'
 	])
 		.default('dev'),
