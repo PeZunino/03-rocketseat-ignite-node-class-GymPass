@@ -2,7 +2,7 @@ import { hash } from 'bcryptjs';
 import {beforeEach,describe,expect, it} from 'vitest';
 import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-users-repository';
 import { AuthenticateService } from './authenticate.service';
-import { InvalidCredentialsError } from './errors/invalid-credentials-error';
+import { InvalidCredentialsError } from './errors/invalid-credentials.error';
 
 let usersRepository:InMemoryUsersRepository;
 
