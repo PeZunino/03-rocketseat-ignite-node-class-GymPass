@@ -1,5 +1,5 @@
-import { CheckIn, Prisma } from '@prisma/client';
+import { CheckIn } from '@/entities/checkin';
 
 export interface CheckInsRepository{
-	create(data:Prisma.CheckInUncheckedCreateInput):Promise<CheckIn>
+	create(data:CheckIn):Promise<CheckIn>
 }
