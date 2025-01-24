@@ -1,0 +1,28 @@
+import { CheckIn } from '@/entities/checkin';
+import { CheckInsRepository } from '@/repositories/check-ins-repository';
+
+interface CheckInServiceRequest{
+	userId:string
+	gymId:string
+}
+
+interface CheckInServiceResponse{
+	checkIn: CheckIn
+}
+
+export class CheckInService{
+  
+	constructor(private checkInsRepository: CheckInsRepository){}
+
+	async execute({
+		gymId,userId
+	}:CheckInServiceRequest):Promise<CheckInServiceResponse>{
+		const checkIn = await this.checkInsRepository.create({
+			gym_id:gymId,
+			user_id: userId
+		});
+
+		return {checkIn};
+	}
+}
+
