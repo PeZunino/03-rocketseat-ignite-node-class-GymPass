@@ -5,12 +5,12 @@
 - [x] Deve ser possível se autenticar
 - [x] Deve ser possível obter o perfil de um usuário logado
 - [ ] Deve ser possível obter um número de check-ins realizado pelo usuário logado 
-- [ ] Deve ser possível o usuário obter seu histórico de check-ins
+- [x] Deve ser possível o usuário obter seu histórico de check-ins
 - [ ] Deve ser possível o usuário buscar academias próximas
 - [ ] Deve ser possível o usuário buscar academias pelo nome
 - [x] Deve ser possível o usuário realizar check-in em uma academia
 - [ ] Deve ser possível validar o chech-in de um usuário
-- [ ] Deve ser possível cadastrar uma academia
+- [x] Deve ser possível cadastrar uma academia
 
 ## RNs (Regras de negócio)
 - [x] O usuário não deve poder se cadastrar com um e-mail duplicado (é validação, mas é imprensidível)
@@ -23,5 +23,5 @@
 ## RFs (Requisitos não-funcionais)
 - [x] A senha do usuário precisa estar criptografada
 - [x] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL
-- [ ] Todas listas de dados precisam estar paginadas com 20 itens por página
+- [x] Todas listas de dados precisam estar paginadas com 20 itens por página
 - [ ] O usuário deve ser identificado por um JWT (JSON Web Token)
