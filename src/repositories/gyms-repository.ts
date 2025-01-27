@@ -6,4 +6,6 @@ export interface GymsRepository{
 
 	create(data:Gym):Promise<Gym>
 
+	searchMany(query:string,page:number):Promise<Gym[]>
+
 }
