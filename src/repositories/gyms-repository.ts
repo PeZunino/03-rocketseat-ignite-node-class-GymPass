@@ -1,4 +1,4 @@
-import { Gym } from '@/entities/gym';
+import { Gym, Prisma } from '@prisma/client';
 
 export interface findManyNearbyParams{
 	latitude:number,
@@ -9,7 +9,7 @@ export interface GymsRepository{
 
 	findById(id:string):Promise<Gym | null>
 
-	create(data:Gym):Promise<Gym>
+	create(data:Prisma.GymCreateInput):Promise<Gym>
 
 	searchMany(query:string,page:number):Promise<Gym[]>
 

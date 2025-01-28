@@ -1,4 +1,4 @@
-import { CheckIn } from '@/entities/check-in';
+import { CheckIn } from '@prisma/client';
 import { CheckInsRepository } from '@/repositories/check-ins-repository';
 
 

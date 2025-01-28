@@ -1,4 +1,4 @@
-import { CheckIn } from '@/entities/check-in';
+import { CheckIn } from '@prisma/client';
 import { CheckInsRepository } from '@/repositories/check-ins-repository';
 import { GymsRepository } from '@/repositories/gyms-repository';
 import { getDistanceBetweenCoordinates } from '@/utils/get-distance-between-coordinates';
@@ -40,8 +40,8 @@ export class CheckInService{
 				longitude: userLongitude
 			},
 			{
-				latitude: gym.latitude,
-				longitude: gym.longitude
+				latitude: gym.latitude.toNumber(),
+				longitude: gym.longitude.toNumber()
 			}
 		);
 

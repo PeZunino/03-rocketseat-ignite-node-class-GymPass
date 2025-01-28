@@ -1,13 +1,13 @@
 import { randomUUID } from 'node:crypto';
+import { CheckIn, Prisma } from '@prisma/client';
 import dayjs from 'dayjs';
-import { CheckIn } from '@/entities/check-in';
 import { CheckInsRepository } from '../check-ins-repository';
 
 export class InMemoryCheckInsRepository implements CheckInsRepository{
 	
 	public items: CheckIn[] = [];
 
-	async findByUserIdOnDate(userId: string, date: Date): Promise<CheckIn | null> {
+	async findByUserIdOnDate(userId: string, date: Date) {
 		const startOfTheDay = dayjs(date)
 			.startOf('date');
 
@@ -29,13 +29,12 @@ export class InMemoryCheckInsRepository implements CheckInsRepository{
 		return checkInOnSameDate;
 	}
   
-	async findManyByUserId(userId: string, page: number): Promise<CheckIn[]> {
+	async findManyByUserId(userId: string, page: number) {
 		return this.items.filter(item=>item.user_id = userId)
 			.slice((page - 1) * 20,page * 20);
 	}
 	
-	async create(data: CheckIn) {
-
+	async create(data: Prisma.CheckInUncheckedCreateInput): Promise<CheckIn> {
 		const checkIn:CheckIn = {
 			id: randomUUID(),
 			gym_id: data.gym_id,
@@ -48,8 +47,22 @@ export class InMemoryCheckInsRepository implements CheckInsRepository{
 
 		return checkIn;
 	}
- 
-	async countByUserId(userId: string): Promise<number> {
+
+	async countByUserId(userId: string) {
 		return this.items.filter(item=>item.user_id == userId).length;
+	}
+
+	async findById(id: string){
+		return this.items.find(item=>item.id == id) ?? null;
+	}
+
+	async save(checkIn: CheckIn): Promise<CheckIn> {
+		const checkInIndex = this.items.findIndex(item=>item.id === checkIn.id);
+
+		if(checkInIndex >= 0){
+			this.items[checkInIndex] = checkIn;
+		} 
+
+		return checkIn;
 	}
 }

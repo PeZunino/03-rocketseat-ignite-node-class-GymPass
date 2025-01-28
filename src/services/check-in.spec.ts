@@ -1,3 +1,4 @@
+import { Decimal } from '@prisma/client/runtime/library';
 import {afterEach,beforeEach,describe,expect, it, vi} from 'vitest';
 import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-ins-repository';
 import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-repository';
@@ -101,8 +102,8 @@ describe('Register Use Case',()=>{
 			title: 'Javascript Gym',
 			description: '',
 			phone: '',
-			latitude:-26.8425214,
-			longitude:-48.6350041,
+			latitude: new Decimal(-26.8425214),
+			longitude: new Decimal(-48.6350041),
 		});
 
 		await expect(()=>

@@ -1,7 +1,6 @@
-import { User } from '@/entities/user';
-
+import { Prisma,User } from '@prisma/client';
 export interface UsersRepository{
-	create(data:User):Promise<User>
+	create(data:Prisma.UserCreateInput):Promise<User>
 
 	findById(id:string):Promise<User | null>
 
