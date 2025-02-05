@@ -8,5 +8,11 @@ export default defineConfig({
 	test: {
 		globals: true,
 		coverage: {all: false,},
+		environmentMatchGlobs: [
+			[
+				'src/http/controllers/**', 'prisma'
+			]
+		],
+		dir: 'src', 
 	},
 });

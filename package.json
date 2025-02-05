@@ -11,8 +11,10 @@
     "database:stop": "docker compose stop",
     "database:delete": "docker compose down",
     "database:migrate": "npx prisma migrate dev",
-    "test": "vitest run",
-    "test:watch": "vitest",
+    "test": "vitest run --dir src/services",
+    "test:watch": "vitest --dir src/services",
+    "pretest:e2e":"",
+    "test:e2e": "vitest run --dir src/http",
     "test:coverage": "vitest run --coverage"
   },
   "repository": {
