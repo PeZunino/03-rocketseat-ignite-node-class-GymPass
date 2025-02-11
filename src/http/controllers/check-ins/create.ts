@@ -20,12 +20,11 @@ export async function create (request:FastifyRequest,response:FastifyReply){
 			})
 	});
 
-	const {gymId} = createCheckInParamsSchema.parse(request.body);
+	const {gymId} = createCheckInParamsSchema.parse(request.params);
 
 	const {
 		latitude,longitude
 	} = createCheckInBodySchema.parse(request.body);
-
 
 	const checkInService = makeCheckInService();
 
