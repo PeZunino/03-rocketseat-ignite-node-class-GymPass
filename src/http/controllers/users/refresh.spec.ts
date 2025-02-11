@@ -26,7 +26,7 @@ describe('Refresh Token (e2e)', () => {
 				password: '123456',
 			});
 
-		const cookies = authResponse.get('Set-Cookie');
+		const cookies = authResponse.get('Set-Cookie') as string[];
 
 		const response = await request(app.server)
 			.patch('/token/refresh')
