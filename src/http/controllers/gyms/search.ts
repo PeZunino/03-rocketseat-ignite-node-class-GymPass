@@ -22,5 +22,5 @@ export async function search (request:FastifyRequest,response:FastifyReply){
 	});
 
 	return response.status(200)
-		.send({gyms});
+		.send(gyms);
 }
